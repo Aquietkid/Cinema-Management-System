@@ -1,4 +1,5 @@
-const express = require('express');
+console.log(process.env) // remove this after you've confirmed it is working
+const express = require("express");
 const app = express();
 const router = express.Router();
 const cors = require("cors");
@@ -7,7 +8,9 @@ app.use(cors({
     origin: '*'
 }));
 
-const port = process.env.PORT;
+require('dotenv').config();
+
+const port = process.env.SRV_PORT;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}!`);
 });

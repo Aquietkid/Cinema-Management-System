@@ -8,4 +8,4 @@ router.get('/getFromAPI', (req, res) => {
 })
 
 
-module.exports(router);
+module.exports = router;
