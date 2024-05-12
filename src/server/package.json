@@ -13,7 +13,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "dev": "parcel ../client/reports/reports.html",
+    "build": "parcel build src/index.html"
   },
   "keywords": [],
   "author": "",
