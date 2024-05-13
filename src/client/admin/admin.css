@@ -1,0 +1,129 @@
+/* CSS */
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Joan&display=swap');
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Joan', serif;
+    background-color: #1e1f26;
+    color: #fff;
+}
+
+/* Top Navigation Styles */
+.top-nav {
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.top-nav ul li {
+    margin-right: 10px;
+}
+
+.top-nav ul li:last-child {
+    margin-right: 0;
+}
+
+.top-nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.top-nav ul li a.active {
+    color: #cd8c38;
+}
+
+.top-nav ul li a:hover {
+    color: #cd8c38;
+}
+
+/* Logout Button */
+.logout-btn {
+    background-color: #cd8c38;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #92601f;
+}
+
+/* Main Content Container Styles */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* Dashboard Layout */
+.dashboard {
+    display: flex;
+    gap: 20px; /* Gap between the two sections */
+}
+
+/* Section Styles */
+section {
+    flex: 1; /* Each section takes up equal space */
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* Heading Styles */
+h2 {
+    color: #cd8c38;
+    margin-bottom: 10px;
+}
+
+/* Item Styles */
+.new-item, .top-movie {
+    margin-bottom: 10px;
+}
+
+.new-item p, .top-movie p {
+    color: #fff;
+}
+/* Item Styles */
+.top-movie {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.top-movie img {
+  width: 80px; /* Adjust image width as needed */
+  margin-right: 20px; /* Gap between image and text */
+  border-radius: 5px;
+}
+
+.movie-info {
+  color: #fff;
+}
+
+.movie-name {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.movie-rating {
+  font-size: 1rem;
+}
