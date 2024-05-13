@@ -1,0 +1,48 @@
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 30px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.star-rating input[type="radio"]:checked~label {
+    color: orange;
+}
+
+.modal-body label {
+    font-weight: bold;
+}
+
+/* Custom button styles */
+.btn-review,
+.btn-submit-review {
+    background-color: #800000;
+    /* Maroon color */
+    border-color: #800000;
+    /* Maroon color */
+    color: #fff;
+    /* White text color */
+}
+
+.btn-review:active {
+    background-color: #800000;
+    /* Maintain maroon color on click */
+}
+
+.btn-review {
+    background-color: #800000;
+    border-color: #800000;
+    color: #fff;
+    outline: none;
+    /* Remove default outline */
+}
+
+.btn-review:hover,
+.btn-review:focus,
+.btn-review:active {
+    outline: 2px solid #fff;
+    /* White outline on hover/focus/click */
+}
