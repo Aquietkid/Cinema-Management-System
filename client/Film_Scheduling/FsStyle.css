@@ -1,0 +1,47 @@
+body {
+    margin-top: 10px;
+    margin-left: 20px;
+    background-color: #1e1f26; /* Dark background */
+    color: white; /* Text color */
+}
+
+/* Custom class to add dark red glow effect on focus */
+.form-control:focus {
+    border-color: darkred; /* Dark red border color */
+    box-shadow: 7px 7px 20px darkred; /* Dark red box shadow */
+}
+
+/* Increase spacing between input fields */
+.mb-3 {
+    margin-bottom: 200px; /* Adjust margin-bottom as needed */
+}
+
+/* Adjust button positioning and hover effect */
+.btn-primary {
+    margin-top: 10vh; /* Adjust top margin */
+    margin-bottom: 10px;
+    padding: 7px 20px;
+    background-color: #007bff; /* Blue color */
+    border-color: #007bff; /* Blue border color */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
+}
+
+.btn-primary:hover {
+    background-color: darkred; /* Dark red color on hover */
+    border-color: darkred; /* Dark red border color on hover */
+    transform: scale(1.10);
+}
+
+.form-select:focus {
+    border-color: darkred; /* Dark red border color */
+    box-shadow: 7px 7px 20px darkred; /* Dark red box shadow */
+}
+
+.container {
+    margin-top: 20vh;
+}
+
+/* style.css */
+.form-check-input:not(:checked) {
+    background-color: darkred;
+}
