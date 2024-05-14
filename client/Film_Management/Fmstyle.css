@@ -1,0 +1,44 @@
+body {
+    margin-top: 10px;
+    margin-left: 20px;
+    /* background-color: #06082a; */
+    background-color: #1e1f26;
+    color: white; /* Text color */
+}
+.con {
+    height: 66vh; /* Full height of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-class {
+    margin-top: 20px; /* Add some vertical spacing between buttons */
+}
+
+.btn-outline-danger {
+    width: 300%; /* Set the button width to 100% */
+    max-width: 400px; /* Set a maximum width to avoid stretching too much on large screens */
+    transition: transform 0.3s; /* Add a transition for smoother hover effect */
+}
+
+.btn:hover {
+    transform: scale(1.10); /* Scale up the button slightly on hover */
+}
+
+.back-btn {
+    margin-top: 5px;
+    margin-right: 100%;
+    background-color: #007bff; /* Blue background */
+    border-color: #007bff; /* Blue border */
+    color: white; /* Text color */
+    font-weight: bold;
+    padding: 7px 20px; /* Add padding to increase button size */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s; /* Add transition for smoother hover effect */
+}
+
+.back-btn:hover {
+    background-color: darkred; /* Dark red color on hover */
+    border-color: darkred; /* Dark red border color on hover */
+}
