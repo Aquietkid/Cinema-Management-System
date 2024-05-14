@@ -27,8 +27,9 @@ body {
 }
 
 .back-btn {
-    margin-top: 5px;
-    margin-right: 100%;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
     background-color: #007bff; /* Blue background */
     border-color: #007bff; /* Blue border */
     color: white; /* Text color */
@@ -36,6 +37,15 @@ body {
     padding: 7px 20px; /* Add padding to increase button size */
     border-radius: 5px; /* Rounded corners */
     transition: background-color 0.3s, color 0.3s; /* Add transition for smoother hover effect */
+ 
+}
+
+/* Ensure that the buttons take full width on smaller screens */
+@media (max-width: 768px) {
+    .btn-outline-danger {
+        width: 100%;
+        max-width: none;
+    }
 }
 
 .back-btn:hover {

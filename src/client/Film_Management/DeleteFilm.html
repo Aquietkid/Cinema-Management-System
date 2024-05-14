@@ -9,7 +9,10 @@
     <style>
         /* Adjust button positioning and hover effect */
         .btn-primary {
-            margin-top: 50vh; /* Adjust top margin */
+            margin-top: 50vh;
+        } 
+        .back-btn{
+            margin-top: 4px;
         }
 
     </style>
@@ -27,18 +30,22 @@
                 <option value="3">Three</option>
             </select>
 
+
             <div class="row">
-                <div class="col-8">
-                    <a class="btn btn-primary back-btn" href="FilmManagement.html" role="button">Back</a>
+                <div class="col-md-8 mb-3 d-none d-md-block">
                 </div>
-                <div class="col-2">
-                    <button type="reset" class="btn btn-primary">Reset</button>
+                <div class="col-6 col-md-2 mb-3">
+                    <button type="reset" class="btn btn-primary w-100">Reset</button>
                 </div>
-                <div class="col-2">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="col-6 col-md-2 mb-3">
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
                 </div>
             </div>
-        </form>
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <a class="btn btn-primary back-btn w-10" href="FilmManagement.html" role="button">Back</a>
+                </div>
+            </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
