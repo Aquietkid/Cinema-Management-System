@@ -10,6 +10,9 @@ app.use(cors({
 
 require('dotenv').config();
 
+const connection = require("./config/persistence");
+
+
 const port = process.env.SRV_PORT;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}!`);
@@ -18,5 +21,8 @@ app.listen(port, () => {
 //@Aquietkid add routes here
 const api = require('./routes/api');
 app.use('/api', api);
+
+const searchRoute = require('./routes/search');
+app.use('/search', searchRoute);
 
 module.exports = router;
