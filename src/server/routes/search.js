@@ -5,12 +5,12 @@ const connection = require("../config/persistence");
 router.get('/:movieName', (req, res) => {
     connection.connect(function (err) {
         if (err) throw err;
-        const name = req.params.movieName;
+        const movieName = req.params.movieName;
         var sql = 'SELECT * FROM Movie WHERE Movie.Name LIKE ?;'; 
-        connection.query(sql, [name], function (err, result) {
+        connection.query(sql, [movieName], function (err, result) {
             if (err) throw err;
             else if (result.length == 0) {
-                return res.status(404).send('No product exists against given ID!');
+                return res.status(404).send('No film with such a name exists!');
             }
             else {
                 res.status(201).json({
@@ -23,22 +23,65 @@ router.get('/:movieName', (req, res) => {
 
 })
 
-router.get('/director/:dirName', (req, res) => {
-    res.status.json({
-        message: "movie name"
+router.get('/director/:directorName', (req, res) => {
+    connection.connect(function (err) {
+        if (err) throw err;
+        const directorName = '%' + req.params.directorName + '%';
+        console.log(directorName);
+        var sql = 'SELECT * FROM Movie WHERE Movie.Director LIKE ?;'; 
+        connection.query(sql, [directorName], function (err, result) {
+            if (err) throw err;
+            else if (result.length == 0) {
+                return res.status(404).send('No such director!');
+            }
+            else {
+                res.status(200).json({
+                    data: result,
+                    message: "Film(s) with the matching director returned"
+                });
+            }
+        });
     });
 })
 
 
 router.get('/producer/:producerName', (req, res) => {
-    res.status.json({
-        message: "movie name"
+    connection.connect(function (err) {
+        if (err) throw err;
+        const producerName = '%' + req.params.producerName + '%';
+        var sql = 'SELECT * FROM Movie WHERE Movie.Producer LIKE ?;'; 
+        connection.query(sql, [producerName], function (err, result) {
+            if (err) throw err;
+            else if (result.length == 0) {
+                return res.status(404).send('No such producer!');
+            }
+            else {
+                res.status(200).json({
+                    data: result,
+                    message: "Film(s) with the matching producer returned"
+                });
+            }
+        });
     });
 })
 
-router.get('/genre/:genre', (req, res) => {
-    res.status.json({
-        message: "movie name"
+router.get('/description/:keyword', (req, res) => {
+    connection.connect(function (err) {
+        if (err) throw err;
+        const keyword = '%' + req.params.keyword + '%';
+        var sql = 'SELECT * FROM Movie WHERE Movie.Description LIKE ?;'; 
+        connection.query(sql, [keyword], function (err, result) {
+            if (err) throw err;
+            else if (result.length == 0) {
+                return res.status(404).send('No such film found!');
+            }
+            else {
+                res.status(200).json({
+                    data: result,
+                    message: "Film(s) with the matching description returned"
+                });
+            }
+        });
     });
 })
 
