@@ -86,5 +86,26 @@ router.get('/description/:keyword', (req, res) => {
 })
 
 
+router.get('/releaseyear/:year', (req, res) => {
+    connection.connect(function (err) {
+        if (err) throw err;
+        const year = req.params.year;
+        var sql = 'SELECT * FROM Movie WHERE YEAR(Movie.ReleaseDate) = ?;'; 
+        connection.query(sql, [year], function (err, result) {
+            if (err) throw err;
+            else if (result.length == 0) {
+                return res.status(404).send('No such film found!');
+            }
+            else {
+                res.status(200).json({
+                    data: result,
+                    message: "Film(s) released in the given year returned"
+                });
+            }
+        });
+    });
+})
+
+
 
 module.exports = router;
