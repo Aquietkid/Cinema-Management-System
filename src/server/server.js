@@ -25,4 +25,10 @@ app.use('/api', api);
 const searchRoute = require('./routes/search');
 app.use('/search', searchRoute);
 
+const filmSchedulerRoute = require('./routes/film_scheduling');
+app.use('/scheduleFilm', filmSchedulerRoute);
+
+const filmManagementRoute = require('./routes/film_management');
+app.use('/filmManagement', filmManagementRoute);
+
 module.exports = router;

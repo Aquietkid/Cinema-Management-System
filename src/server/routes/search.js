@@ -5,7 +5,7 @@ const connection = require("../config/persistence");
 router.get('/:movieName', (req, res) => {
     connection.connect(function (err) {
         if (err) throw err;
-        const movieName = req.params.movieName;
+        const movieName = '%' + req.params.movieName + '%';
         var sql = 'SELECT * FROM Movie WHERE Movie.Name LIKE ?;'; 
         connection.query(sql, [movieName], function (err, result) {
             if (err) throw err;
