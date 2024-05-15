@@ -8,6 +8,10 @@
     color: #ccc;
 }
 
+.star-rating {
+    display: flex;
+}
+
 .star-rating input[type="radio"]:checked~label {
     color: orange;
 }

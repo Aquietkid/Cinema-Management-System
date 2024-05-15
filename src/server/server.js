@@ -31,4 +31,7 @@ app.use('/scheduleFilm', filmSchedulerRoute);
 const filmManagementRoute = require('./routes/film_management');
 app.use('/filmManagement', filmManagementRoute);
 
+const reviewRoute = require('./routes/review');
+app.use('/review', reviewRoute);
+
 module.exports = router;

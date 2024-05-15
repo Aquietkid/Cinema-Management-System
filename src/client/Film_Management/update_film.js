@@ -48,7 +48,6 @@ function updateFilm() {
 }
 
 
-/////////////////////////////////////
 function fetchFilms() {
     fetch('http://localhost:20419/filmManagement/allFilms')
         .then(response => {
