@@ -16,6 +16,8 @@ function deleteFilm() {
                 throw new Error('Network response was not ok');
             }
             // Parse the JSON response
+            alert('Film deleted!');
+            location.reload();
             return response.json();
         })
         .then(data => {

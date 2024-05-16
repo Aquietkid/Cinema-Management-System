@@ -85,7 +85,7 @@ async function scheduleFilms() {
         method: "POST"
     })
         .then(response => {
-            alert('Films scheduled!');
+            alert('Film(s) scheduled!');
             location.reload();
         })
         .then(data => {

@@ -30,20 +30,17 @@ function updateFilm() {
         })
     })
         .then(response => {
-            // Check if the response is successful (status code 200)
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            // Parse the JSON response
             return response.json();
         })
         .then(data => {
-            // Display the quotation result on the HTML page
+            alert('Film updated!');
+            location.reload();
         })
         .catch(error => {
-            // Handle any errors that occurred during the fetch
             console.error('There was a problem with the fetch operation:', error);
-            // Display an error message on the HTML page
         });
 }
 
@@ -95,7 +92,7 @@ window.addEventListener(onload, fetchFilms());
 document.getElementById('update-film-button').addEventListener('click', updateFilm);
 
 
-document.getElementById('film-selector').addEventListener('change', function() {
+document.getElementById('film-selector').addEventListener('change', function () {
     const ID = document.getElementById('film-selector').value;
     fetch(`http://localhost:20419/filmManagement/film/${ID}`)
         .then(response => {

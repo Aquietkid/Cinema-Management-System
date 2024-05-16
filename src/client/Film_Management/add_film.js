@@ -24,10 +24,12 @@ function addFilm() {
 			description: description
 		})
 	})
-		.then(response =>{
-			if(!response.ok) {
+		.then(response => {
+			if (!response.ok) {
 				throw new Error('Network response was not ok');
 			}
+			alert('Film added!');
+			location.reload();
 			return response.json();
 		})
 		.then(data => {
