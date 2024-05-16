@@ -62,6 +62,20 @@
             var numTickets = document.getElementById('num-tickets').value; // Get the number of tickets
             document.getElementById('ticket-count').textContent = numTickets;
             document.getElementById('success-modal').style.display = 'block';
+
+                // Function to get query parameters from the URL
+    function getQueryParam(param) {
+        var searchParams = new URLSearchParams(window.location.search);
+        return searchParams.get(param);
+    }
+
+    // Get movie details from URL parameters
+    var movieTitle = getQueryParam('title');
+    var movieImage = getQueryParam('image');
+
+    // Set the movie details in the HTML
+    document.querySelector('.movie-title').textContent = movieTitle;
+    document.querySelector('.movie-img-box img').src = '../assets/' + movieImage;
         });
     </script>
 </body>
