@@ -249,3 +249,38 @@ label {
     color: #cd8c38;
   
 }
+
+
+/* ... existing styles ... */
+
+/* Improved button styling */
+.btn {
+    display: inline-block;
+    padding: .5rem 1rem;
+    background-color: #ff5722; /* Brighter shade for better visibility */
+    border-radius: 2rem;
+    color: white; /* Changed for better contrast */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #e64a19; /* Darker shade for hover state */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Responsive grid for movie cards */
+.current-movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+/* Movie card hover effect */
+.current-movie:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+/* ... additional styles ... */

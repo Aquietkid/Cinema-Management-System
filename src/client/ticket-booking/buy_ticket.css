@@ -1,188 +1,105 @@
 @import url('https://fonts.googleapis.com/css2?family=Joan&display=swap');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Joan', serif;
-}
-
-a {
-    text-decoration: none;
-    color: #adadad;
-}
-
-.btn {
-    display: inline-block;
-    padding: .5rem 1rem;
-    background-color: #cd8c38;
-    border-radius: 2rem;
-    transition: .3s;
-    color: #fff; /* Changed button text color to white */
-}
-
-.btn:hover {
-    background-color: #92601f;
-}
-
-.btn-l {
-    width: 100%;
-    text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
     background-color: #1e1f26;
+    color: #fff;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding-top: 50px; /* Adjust as needed */
-    color: #fff; /* Changed text color to white */
-}
-
-/* movie details */
-.movie-details {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.movie-details,
+.booking-form {
+    background-color: #252934;
+    padding: 2rem;
+    border-radius: 0.5rem;
     margin-bottom: 2rem;
-}
-
-.movie-img-container {
-    position: relative;
-    width: 60%; /* Adjust width as needed */
-}
-
-.movie-img-box {
-    position: relative;
-    height: 400px; /* Adjust height as needed */
-    border-radius: .5rem;
-    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .movie-img-box img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    border-radius: 0.5rem;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    object-fit: cover; /* Add this line */
 }
 
 .details {
-    color: #adadad;
-    flex-grow: 1;
-    margin-top: 1rem; /* Adjust as needed */
     text-align: center;
+    margin-top: 1rem;
 }
 
 .movie-title {
     color: #cd8c38;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }
 
 .description {
     margin-bottom: 1rem;
 }
 
-/* show times */
-.show-times {
-    margin-top: 2rem;
-    text-align: center;
-}
-
-.show-times h3 {
-    color: #cd8c38;
-    margin-bottom: .5rem;
-}
-
-.show-times ul {
-    list-style: none;
-    padding: 0;
-}
-
-.show-times li {
-    margin-bottom: .5rem;
-}
-
-.city {
-    font-weight: bold;
-    color: #cd8c38;
-}
-
-.booking-form {
-    margin-top: 2rem; /* Adjust as needed */
-}
-
-.booking-form .form-title {
-    text-align: center;
-}
-
 .input-group {
     margin-bottom: 1rem;
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
 
 .input-group label {
-    flex: 1;
-    text-align: right;
-    margin-right: 1rem;
-    color: #fff; /* Changed label text color to white */
+    margin-bottom: 0.5rem;
 }
 
 .input-group input,
 .input-group select {
-    flex: 2;
-    color: #000; /* Changed input/select text color to black */
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: none;
 }
 
-.input-group select {
-    width: 100%;
+.btn {
+    background-color: #cd8c38;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-
-.button {
-    width: auto; /* Remove width limitation */
-    text-align: right; /* Align button to the right */
-    margin-right: 70%; /* Add margin to create space from the right edge */
+.btn:hover {
+    background-color: #92601f;
+    transform: translateY(-2px);
 }
 
-label {
-    margin-left: .5rem;
+.btn:active {
+    transform: translateY(1px);
 }
 
-/* Positioning the play trailer button */
-.movie-img-box {
-    position: relative;
-    height: 400px; /* Adjust height as needed */
-    border-radius: .5rem;
-    overflow: hidden;
-}
-
-.movie-img-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.btn.play-trailer {
-    position: absolute;
-    bottom: 10px; /* Adjust top position */
-    right: 10px; /* Adjust right position */
-    background-color:#cd8c38 ;/* Semi-transparent background */
-    padding: 10px; /* Adjust padding */
-    border-radius: 50%; /* Circular button */
-    color: #fff; /* Button text color */
-    text-decoration: none;
-    z-index: 1; /* Ensure button is above the image */
-}
-
-.btn.play-trailer:hover {
-    background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
-}
-
-/* Centering movie details vertically */
-.movie-details {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.form-title {
+    text-align: center;
     margin-bottom: 2rem;
 }
+
+#finish {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+#success-modal {
+    z-index: 1000; /* Adjust the value as needed */
+    display: none !important;
+}
+
