@@ -13,17 +13,15 @@
     <section class="movie-details">
         <div class="movie-img-container">
             <div class="movie-img-box">
-                <img src="avenger.jpeg" alt="Movie Image">
-                <a href="https://youtu.be/TcMBFSGVi1c?si=Xs09cKV96Tr1ia_N" class="btn play-trailer">Play Trailer</a>
+                <img src="../assets/avenger.jpeg" alt="Movie Image">
+                <!-- Removed Play Trailer Button -->
             </div>
         </div>
         <div class="details">
             <h2 class="movie-title">Avengers Endgame</h2>
             <p class="description">After Thanos, an intergalactic warlord, disintegrates
-                <br>
                 half of the universe, the Avengers must reunite and assemble
-                <br>
-                again to reinvigorate their trounced allies and restore balance..</p>
+                again to reinvigorate their trounced allies and restore balance.</p>
         </div>
     </section>
     <section class="booking-form">
@@ -34,24 +32,8 @@
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="input-group">
-                <label for="contact">Contact Number:</label>
-                <input type="tel" id="contact" name="contact" required>
-            </div>
-            <div class="input-group">
-                <label for="cinema">Cinema Name:</label>
-                <input type="text" id="cinema" name="cinema" value="CineFast" readonly>
-            </div>
-            <div class="input-group">
-                <label for="location">Location:</label>
-                <select id="location" name="location">
-                    <option value="lahore">Lahore</option>
-                    <option value="karachi">Karachi</option>
-                    <option value="islamabad">Islamabad</option>
-                </select>
-            </div>
-            <div class="input-group">
                 <label for="num-tickets">Number of Tickets:</label>
-                <input type="number" id="num-tickets" name="num-tickets" min="1" required>
+                <input type="number" id="num-tickets" name="num-tickets" min="1" max="5" required>
             </div>
             <div class="input-group">
                 <label for="seat-num">Seat Number:</label>
@@ -64,69 +46,22 @@
                     <option value="row6">Row 6</option>
                 </select>
             </div>
-            <button type="button" class="btn proceed-checkout" id="pay-online">Pay Online</button>
-            <button type="submit" class="btn proceed-checkout" id="finish" style="display: none;">Finish</button>
+            <button type="submit" class="btn proceed-checkout" id="finish">Finish</button>
         </form>
     </section>
+        
 
-    <!-- Payment Popup -->
-    <div id="payment-popup" class="popup" style="display: none;">
-        <div class="popup-content">
-            <span class="close">&times;</span>
-            <h2>Payment Information</h2>
-            <form id="payment-form">
-                <div class="input-group">
-                    <label for="cardholder-name">Cardholder's Name:</label>
-                    <input type="text" id="cardholder-name" name="cardholder-name" required>
-                </div>
-                <div class="input-group">
-                    <label for="card-number">Card Number:</label>
-                    <input type="text" id="card-number" name="card-number" required>
-                </div>
-                <div class="input-group">
-                    <label for="expiry-date">Expiry Date:</label>
-                    <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
-                </div>
-                <div class="input-group">
-                    <label for="cvv">CVV:</label>
-                    <input type="text" id="cvv" name="cvv" required>
-                </div>
-                <button type="button" id="submit-payment" class="btn proceed-checkout">Submit Payment</button>
-            </form>
-        </div>
+    <div id="success-modal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background-color:white; padding:20px; border-radius:5px; box-shadow:0 2px 10px rgba(0,0,0,0.5);">
+        <p id="success-message">Purchase Successful! You have booked <span id="ticket-count"></span> seats.</p>
+        <button onclick="document.getElementById('success-modal').style.display='none'">Close</button>
     </div>
 
     <script>
-   
-        document.getElementById('pay-online').addEventListener('click', function () {
-            document.getElementById('payment-popup').style.display = 'block';
-        });
-
-        document.querySelector('.close').addEventListener('click', function () {
-            document.getElementById('payment-popup').style.display = 'none';
-        });
-        document.getElementById('booking-form').addEventListener('submit', function (event) {
-            if (!document.getElementById('payment-form').classList.contains('submitted')) {
-                event.preventDefault();
-                alert('Please complete payment information first.');
-            }
-        });
-  // Function to handle payment submission
-  document.getElementById('submit-payment').addEventListener('click', function () {
-           
-            const cardholderName = document.getElementById('cardholder-name').value;
-            const cardNumber = document.getElementById('card-number').value;
-            const expiryDate = document.getElementById('expiry-date').value;
-            const cvv = document.getElementById('cvv').value;
-
-            if (!cardholderName || !cardNumber || !expiryDate || !cvv) {
-                alert('Please fill out all fields for card information.');
-            } else {
-    
-                document.getElementById('payment-form').classList.add('submitted');
-                alert('Payment submitted successfully. You can now finish your booking.');
-                document.getElementById('finish').style.display = 'inline-block';
-            }
+        document.getElementById('booking-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            var numTickets = document.getElementById('num-tickets').value; // Get the number of tickets
+            document.getElementById('ticket-count').textContent = numTickets;
+            document.getElementById('success-modal').style.display = 'block';
         });
     </script>
 </body>
