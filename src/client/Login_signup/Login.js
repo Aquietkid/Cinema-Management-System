@@ -20,6 +20,26 @@ async function login() {
         .catch(error => {
             console.error('There was a problem logging in:', error);
         });
+
+        fetch(`http://localhost:20419/credential/loginAdmin/${username}/${password}`)
+        .then(response => {
+            if(!response.ok){
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            window.localStorage.setItem('userID', data.userID);
+            sessionStorage.setItem('navigationFlag', true);
+            window.location.href = '../Admin_Dashboard/admin_dashboard.html';
+            // console.log('userID' + window.sessionStorage.getItem('userID'));
+        })
+        .catch(error => {
+            console.error('There was a problem logging in:', error);
+        });
+
+        alert('Incorrect credentials!');
+
 }
 
 document.getElementById('login-btn').addEventListener('click', login);
