@@ -9,11 +9,25 @@
 }
 
 .star-rating {
-    display: flex;
+    direction: rtl;
+    display: inline-block;
 }
 
-.star-rating input[type="radio"]:checked~label {
-    color: orange;
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.star-rating input:checked~label,
+.star-rating input:hover~label,
+.star-rating label:hover,
+.star-rating label:hover~label {
+    color: gold;
 }
 
 .modal-body label {
