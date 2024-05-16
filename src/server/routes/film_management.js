@@ -15,7 +15,7 @@ router.post('/addFilm', (req, res) => {
         if (err) throw err;
         const movieName = req.params.movieName;
         var sql = 'INSERT INTO Movie (Name, Director, Producer, ReleaseDate, Description, Duration) VALUES (?,?,?,DATE(?),?,?);';
-        connection.query(sql, [filmName, directorName, producerName, releaseDate, duration, description], function (err, result) {
+        connection.query(sql, [filmName, directorName, producerName, releaseDate, description, duration], function (err, result) {
             if (err) throw err;
             else {
                 res.status(201).json({

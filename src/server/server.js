@@ -34,4 +34,6 @@ app.use('/filmManagement', filmManagementRoute);
 const reviewRoute = require('./routes/review');
 app.use('/review', reviewRoute);
 
+const credentialRoute = require('./routes/credential');
+app.use('/credential', credentialRoute);
 module.exports = router;

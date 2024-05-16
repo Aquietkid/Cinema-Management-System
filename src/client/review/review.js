@@ -2,7 +2,8 @@
 async function addReview() {
     event.preventDefault();
     // var MovieID = document.getElementById('film-selector').value;
-    var CustomerID = 'john.doe';
+    var CustomerID = parseInt(window.localStorage.getItem('userID'));
+    // if(!CustomerID) CustomerID = 0;
     var Rating = getStars();
     console.log('starnum' + Rating);
     var Review = document.getElementById('comment').value;

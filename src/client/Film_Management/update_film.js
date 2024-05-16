@@ -33,14 +33,14 @@ function updateFilm() {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
+            alert('Film updated!');
+            location.reload();
             return response.json();
         })
         .then(data => {
-            alert('Film updated!');
-            location.reload();
         })
         .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
+            console.error('There was a problem with updating the film:', error);
         });
 }
 

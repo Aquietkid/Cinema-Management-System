@@ -38,7 +38,7 @@ async function searchFilm(event) {
                 alert('Film does not exist!');
             } else {
                 // Film exists, display it in table format
-                const table = createTable(movie.data[0]); // Pass the first movie object to createTable
+                const table = createTable(movie.data); // Pass the first movie object to createTable
                 resultsContainer.innerHTML = '';
                 resultsContainer.appendChild(table);
             }
@@ -52,7 +52,7 @@ async function searchFilm(event) {
     }
 }
 
-function createTable(movie) {
+function createTable(movies) {
     const table = document.createElement('table');
     table.classList.add('table', 'table-striped'); // Added Bootstrap class for styling
 
@@ -66,9 +66,6 @@ function createTable(movie) {
         headerRow.appendChild(header);
     });
 
-    // Add a row with the movie details
-    const tbody = table.createTBody();
-    const row = tbody.insertRow();
 
     // Helper function to safely retrieve property values
     function safeText(content) {
@@ -81,27 +78,33 @@ function createTable(movie) {
         return isNaN(date.getTime()) ? 'N/A' : date.toLocaleDateString();
     }
 
-    // Inserting cells with safeText to handle undefined or null values
-    const movieIdCell = row.insertCell();
-    movieIdCell.textContent = safeText(movie.MovieID);
+    movies.forEach(movie => {
+        // Add a row with the movie details
+        var tbody = table.createTBody();
+        var row = tbody.insertRow();
 
-    const nameCell = row.insertCell();
-    nameCell.textContent = safeText(movie.Name);
+        // Inserting cells with safeText to handle undefined or null values
+        const movieIdCell = row.insertCell();
+        movieIdCell.textContent = safeText(movie.MovieID);
 
-    const directorCell = row.insertCell();
-    directorCell.textContent = safeText(movie.Director);
+        const nameCell = row.insertCell();
+        nameCell.textContent = safeText(movie.Name);
 
-    const descriptionCell = row.insertCell();
-    descriptionCell.textContent = safeText(movie.Description);
+        const directorCell = row.insertCell();
+        directorCell.textContent = safeText(movie.Director);
 
-    const durationCell = row.insertCell();
-    durationCell.textContent = safeText(movie.Duration);
+        const descriptionCell = row.insertCell();
+        descriptionCell.textContent = safeText(movie.Description);
 
-    const producerCell = row.insertCell();
-    producerCell.textContent = safeText(movie.Producer);
+        const durationCell = row.insertCell();
+        durationCell.textContent = safeText(movie.Duration);
 
-    const releaseDateCell = row.insertCell();
-    releaseDateCell.textContent = formatDate(movie.ReleaseDate);
+        const producerCell = row.insertCell();
+        producerCell.textContent = safeText(movie.Producer);
+
+        const releaseDateCell = row.insertCell();
+        releaseDateCell.textContent = formatDate(movie.ReleaseDate);
+    });
 
     return table;
 }
