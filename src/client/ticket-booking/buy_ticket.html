@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,76 +7,69 @@
     <link rel="stylesheet" href="buy_ticket.css">
     <title>Buy Ticket</title>
 </head>
-
 <body>
     <section class="movie-details">
         <div class="movie-img-container">
             <div class="movie-img-box">
-                <img src="../assets/avenger.jpeg" alt="Movie Image">
-                <!-- Removed Play Trailer Button -->
+                <!-- The src and alt attributes will be set dynamically -->
+                <img src="" alt="Movie Image" id="movie-image">
             </div>
         </div>
         <div class="details">
-            <h2 class="movie-title">Avengers Endgame</h2>
-            <p class="description">After Thanos, an intergalactic warlord, disintegrates
-                half of the universe, the Avengers must reunite and assemble
-                again to reinvigorate their trounced allies and restore balance.</p>
+            <!-- The movie title will be set dynamically -->
+            <h2 class="movie-title" id="movie-title"></h2>
+            <!-- You can also set the description dynamically if needed -->
+            <p class="description" id="movie-description"></p>
         </div>
-    </section>
-    <section class="booking-form">
-        <h2 class="form-title">Book Tickets</h2>
-        <form id="booking-form">
-            <div class="input-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="input-group">
-                <label for="num-tickets">Number of Tickets:</label>
-                <input type="number" id="num-tickets" name="num-tickets" min="1" max="5" required>
-            </div>
-            <div class="input-group">
-                <label for="seat-num">Seat Number:</label>
-                <select id="seat-num" name="seat-num">
-                    <option value="row1">Row 1</option>
-                    <option value="row2">Row 2</option>
-                    <option value="row3">Row 3</option>
-                    <option value="row4">Row 4</option>
-                    <option value="row5">Row 5</option>
-                    <option value="row6">Row 6</option>
-                </select>
-            </div>
-            <button type="submit" class="btn proceed-checkout" id="finish">Finish</button>
-        </form>
-    </section>
-        
-
-    <div id="success-modal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background-color:white; padding:20px; border-radius:5px; box-shadow:0 2px 10px rgba(0,0,0,0.5);">
-        <p id="success-message">Purchase Successful! You have booked <span id="ticket-count"></span> seats.</p>
-        <button onclick="document.getElementById('success-modal').style.display='none'">Close</button>
-    </div>
-
+        <section class="booking-form">
+            <h2 class="form-title">Book Tickets</h2>
+            <form id="booking-form">
+                <div class="input-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label for="num-tickets">Number of Tickets:</label>
+                    <input type="number" id="num-tickets" name="num-tickets" min="1" max="5" required>
+                </div>
+                <div class="input-group">
+                    <label for="seat-num">Seat Number:</label>
+                    <select id="seat-num" name="seat-num">
+                        <option value="row1">Row 1</option>
+                        <option value="row2">Row 2</option>
+                        <option value="row3">Row 3</option>
+                        <option value="row4">Row 4</option>
+                        <option value="row5">Row 5</option>
+                        <option value="row6">Row 6</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn proceed-checkout" id="finish">Finish</button>
+            </form>
+        </section>
+    ...
     <script>
+        // Function to get query parameters from the URL
+        function getQueryParam(param) {
+            var searchParams = new URLSearchParams(window.location.search);
+            return searchParams.get(param);
+        }
+
+        // Get movie details from URL parameters
+        var movieTitle = getQueryParam('title');
+        var movieImage = getQueryParam('image');
+
+        // Set the movie details in the HTML
+        document.getElementById('movie-title').textContent = movieTitle || 'Default Movie Title';
+        document.getElementById('movie-image').src = movieImage ? '../assets/' + movieImage : 'default_image.jpeg';
+        document.getElementById('movie-image').alt = movieTitle || 'Default Movie Title';
+
+        // Event listener for the booking form
         document.getElementById('booking-form').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the form from submitting normally
             var numTickets = document.getElementById('num-tickets').value; // Get the number of tickets
             document.getElementById('ticket-count').textContent = numTickets;
             document.getElementById('success-modal').style.display = 'block';
-
-                // Function to get query parameters from the URL
-    function getQueryParam(param) {
-        var searchParams = new URLSearchParams(window.location.search);
-        return searchParams.get(param);
-    }
-
-    // Get movie details from URL parameters
-    var movieTitle = getQueryParam('title');
-    var movieImage = getQueryParam('image');
-
-    // Set the movie details in the HTML
-    document.querySelector('.movie-title').textContent = movieTitle;
-    document.querySelector('.movie-img-box img').src = '../assets/' + movieImage;
         });
     </script>
 </body>
-
 </html>
