@@ -131,4 +131,65 @@ function getSelectedStars() {
     return selectedStars;
 }
 
+function fetchReviews() {
+    fetch('http://localhost:20419/review/allReviews')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            // console.log('Above return response.json()', response);
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            // Populate the dropdown with items from the backend
+            populateTable(data.data);
+        })
+        .catch(error => {
+            console.error('There was a problem fetching films:', error);
+        });
+}
+
+// Function to populate the dropdown with items
+function populateTable(films) {
+    var filmTable = document.getElementById('reviewsTable');
+
+    // Clear existing options
+    // RatingID, MovieID, CustomerID, RatingStars, Review
+    filmTable.innerHTML = `
+    <thead class="text-warning">
+        <tr>
+            <th scope="col">MovieName</th>
+            <th scope="col">RatingStars</th>
+            <th scope="col">Review</th>
+        </tr>
+        </thead>
+        <tbody>
+    `;
+
+    // Add default option
+    // const defaultOption = document.createElement('option');
+    // defaultOption.value = '';
+    // defaultOption.textContent = 'Select a movie to update';
+    // itemDropdown.appendChild(defaultOption);
+
+    var ii = 1
+    films.forEach(film => {
+        // const option = document.create('option');
+        // filmTable.append(option);
+        
+        var newRow = filmTable.insertRow(ii++);
+        newRow.innerHTML = `
+            <td>${film.Name}</td>
+            <td>${film.RatingStars}</td>
+            <td>${film.Review}</td>
+        `;
+    });
+
+    filmTable.innerHTML += '</tbody>';
+
+
+}
+
 window.addEventListener(onload, fetchFilms());
+window.addEventListener(onload, fetchReviews());

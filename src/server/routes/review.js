@@ -28,7 +28,7 @@ router.get('/allReviews', (req, res) => {
     connection.connect(function (err) {
         if (err) throw err;
 
-        var sql = 'SELECT * FROM Rating;';
+        var sql = 'SELECT RatingStars, Review, Name FROM Rating JOIN Movie on Movie.MovieID = Rating.MovieID;';
         connection.query(sql, function (err, result) {
             if (err) throw err;
             else if(result.length == 0) {
